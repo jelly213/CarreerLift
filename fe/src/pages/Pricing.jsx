@@ -23,7 +23,7 @@ export default function Pricing() {
     return (
         <>
             <Navbar />
-            <div className="bg-gray-50 min-h-screen py-16 px-6">
+            <div className="bg-gray-50 min-h-screen py-16 px-6 mt-16">
                 <div className="max-w-5xl mx-auto text-center mb-12">
                     <h1 className="text-4xl font-extrabold text-gray-900">Nos offres</h1>
                     <p className="text-gray-600 mt-3">
