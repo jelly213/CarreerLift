@@ -6,6 +6,7 @@ import com.be.model.User;
 import com.be.repository.UserRepository;
 import com.be.security.JwtUtil;
 import com.be.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -49,7 +50,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody RegisterRequest request, HttpServletRequest httpRequest) {
+    public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest request, HttpServletRequest httpRequest) {
         String clientIp = httpRequest.getRemoteAddr();
 
         // ✅ Vérifier si l’IP est exclue

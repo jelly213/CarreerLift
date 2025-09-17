@@ -4,6 +4,7 @@ import com.be.model.User;
 import com.be.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -30,4 +31,12 @@ public class UserService {
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+
+    @Transactional
+    public void activatePremium(Long userId) {
+        User u = userRepository.findById(userId).orElseThrow();
+        u.setPremium(true);
+        userRepository.save(u);
+    }
+
 }

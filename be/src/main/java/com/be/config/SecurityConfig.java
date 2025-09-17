@@ -42,6 +42,9 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource())) // ✅ active CORS
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/stripe/webhook").permitAll()
+                        .requestMatchers("/api/payment/webhook").permitAll() // Webhook Stripe doit rester public
+                        .requestMatchers("/api/payment/checkout").authenticated()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);

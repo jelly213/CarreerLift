@@ -40,4 +40,8 @@ public class User {
         this.premium = false;
         this.remainingCredits = 1;
     }
+
+    public Long getId() {
+        return id;
+    }
 }

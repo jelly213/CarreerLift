@@ -5,6 +5,8 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Pricing from "./pages/Pricing";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Cancel from "./pages/Cancel.jsx";
+import Success from "./pages/Success.jsx";
 
 export default function App() {
     return (
@@ -32,6 +34,9 @@ export default function App() {
                         </ProtectedRoute>
                     }
                 />
+                <Route path="/success" element={<Success />} />
+                <Route path="/cancel" element={<Cancel />} />
+
 
                 {/* Fallback */}
                 <Route path="*" element={<Home />} />
